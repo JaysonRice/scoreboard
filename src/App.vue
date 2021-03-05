@@ -1,18 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <matchup-title :team1="team1" :team2="team2" />
+    <counter
+      :score="team1.score"
+      @add="addOne(team1)"
+      @subtract="subtractOne(team1)"
+    />
+    <counter
+      :score="team2.score"
+      @add="addOne(team2)"
+      @subtract="subtractOne(team2)"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Counter from "./components/Counter.vue";
+import MatchupTitle from "./components/MatchupTitle.vue";
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld
-  }
+  components: { MatchupTitle, Counter },
+  data() {
+    return {
+      team1: {
+        name: "The Bald Bretheren",
+        score: 0,
+      },
+      team2: {
+        name: "The Sincere Sisters",
+        score: 0,
+      },
+    };
+  },
+  methods: {
+    addOne(team) {
+      team.score += 1;
+    },
+    subtractOne(team) {
+      if (team.score === 0) {
+        return;
+      }
+      team.score -= 1;
+    },
+  },
 };
 </script>
 
