@@ -23,7 +23,7 @@ export default {
         this.team1.score > this.team2.score ? this.team1.name : this.team2.name;
       const pointOrPoints = difference > 1 ? "points" : "point";
 
-      return `${winningTeam} are winning by ${difference} ${pointOrPoints}.`;
+      return `${winningTeam} is winning by ${difference} ${pointOrPoints}.`;
     },
   },
 };

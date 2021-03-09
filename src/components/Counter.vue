@@ -25,8 +25,9 @@ export default {
 <style>
 .counters {
   background-color: rgb(215, 255, 250);
-  border: 10px solid #2e7c72;
+  border: 10px solid #26a69a;
   flex-basis: 25%;
+  border-radius: 1em;
 }
 
 .score {
