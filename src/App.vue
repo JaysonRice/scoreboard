@@ -1,20 +1,22 @@
 <template>
-  <div id="app">
-    <matchup-title :team1="team1" :team2="team2" />
-    <game-status :team1="team1" :team2="team2" />
-    <div class="counterContainer">
-      <counter
-        :score="team1.score"
-        @add="addOne(team1)"
-        @subtract="subtractOne(team1)"
-      />
-      <counter
-        :score="team2.score"
-        @add="addOne(team2)"
-        @subtract="subtractOne(team2)"
-      />
-    </div>
-  </div>
+  <v-app>
+    <v-main class="pa-6 teal lighten-2">
+      <matchup-title :team1="team1" :team2="team2" />
+      <game-status :team1="team1" :team2="team2" />
+      <div class="counterContainer">
+        <counter
+          :score="team1.score"
+          @add="addOne(team1)"
+          @subtract="subtractOne(team1)"
+        />
+        <counter
+          :score="team2.score"
+          @add="addOne(team2)"
+          @subtract="subtractOne(team2)"
+        />
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -27,11 +29,11 @@ export default {
   data() {
     return {
       team1: {
-        name: "The Bald Bretheren",
+        name: "Team 1",
         score: 0,
       },
       team2: {
-        name: "The Sincere Sisters",
+        name: "Team 2",
         score: 0,
       },
     };
@@ -51,16 +53,12 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #41b3a3;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .counterContainer {
   display: flex;
